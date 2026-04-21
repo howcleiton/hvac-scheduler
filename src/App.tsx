@@ -4,7 +4,6 @@ import {
   Clock, 
   Play, 
   Layout, 
-  CheckCircle2, 
   AlertCircle,
   Timer,
   Car
