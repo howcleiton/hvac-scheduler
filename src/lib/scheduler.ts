@@ -31,6 +31,13 @@ export interface ScheduleResult {
 }
 
 export function gerarCronograma(params: ScheduleParams): ScheduleResult {
+  const formatDuration = (totalMinutes: number): string => {
+    if (totalMinutes < 60) return `${totalMinutes}m`;
+    const h = Math.floor(totalMinutes / 60);
+    const m = totalMinutes % 60;
+    return m > 0 ? `${h}h ${m}m` : `${h}h`;
+  };
+
   const {
     startJourney,
     startLunch,
@@ -98,11 +105,13 @@ export function gerarCronograma(params: ScheduleParams): ScheduleResult {
       orderEnd = tJourneyEnd;
     }
 
+    const duraMinutos = Math.round(orderEnd.diff(orderStart, 'second') / 60);
+    
     const item: ScheduleItem = {
       equipamento: i,
       inicio: orderStart.format('HH:mm'),
       fim: orderEnd.format('HH:mm'),
-      duracao: Math.round(orderEnd.diff(orderStart, 'second') / 60) + 'm',
+      duracao: formatDuration(duraMinutos),
     };
 
     schedule.push(item);
