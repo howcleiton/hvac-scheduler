@@ -111,7 +111,7 @@ const App: React.FC = () => {
           
           <div className="input-row">
             <div className="form-group">
-              <label>Total de Ordens (OS)</label>
+              <label>Total de OS</label>
               <input 
                 type="number" 
                 name="totalOrders" 
@@ -120,7 +120,7 @@ const App: React.FC = () => {
               />
             </div>
             <div className="form-group">
-              <label><Car size={14} style={{marginRight: 4}} /> Desloc. (m)</label>
+              <label><Car size={14} style={{marginRight: 4}} /> Desloc. (min)</label>
               <input 
                 type="number" 
                 name="travelTime" 

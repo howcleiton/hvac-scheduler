@@ -34,7 +34,7 @@ body {
 #root {
   display: flex;
   justify-content: center;
-  padding: 2rem;
+  padding: max(2rem, env(safe-area-inset-top)) max(2rem, env(safe-area-inset-right)) max(2rem, env(safe-area-inset-bottom)) max(2rem, env(safe-area-inset-left));
 }
 
 .container {
@@ -48,6 +48,26 @@ body {
 @media (max-width: 900px) {
   .container {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #root {
+    padding: max(1rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) max(5rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
+  }
+  
+  .panel {
+    padding: 1.25rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .input-row {
+    gap: 0.75rem;
   }
 }
 
@@ -70,6 +90,7 @@ body {
   -webkit-text-fill-color: transparent;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.75rem;
 }
 
